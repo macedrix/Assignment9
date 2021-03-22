@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "The Joel Hilton Film Collection";
+    ViewBag.Category = Model.Category;
+    ViewBag.MovieTitle = Model.Title;
+    ViewBag.Year = Model.Year;
+    ViewBag.Director = Model.Director;
+    ViewBag.Rating = Model.Rating;
+    ViewBag.Edited = Model.Edited;
+    ViewBag.LentTo = Model.LentTo;
+    ViewBag.Notes = Model.Notes;
+}
+
+@model Assignment9.Models.Movie
+
+<h1>Movie Successfully Added to Your List</h1>
+
+<!--Confirm that the movie was entered in the database-->
+<div>
+    <p>The movie @ViewBag.MovieTitle (@ViewBag.Year) has been added</p>
+    <p><a asp-controller="Home" asp-action="ViewMovies">Click here</a> to view the list of all movies.</p>
+</div>

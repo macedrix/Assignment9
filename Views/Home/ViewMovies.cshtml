@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<Movie>
+
+<h1>Movie List</h1>
+
+<!--Table that displays all movie-->
+<div>
+    <table BORDER="1" CELLPADDING="2" CELLSPACING="3" WIDTH="1000">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Category</th>
+                <th width="150">Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent to</th>
+                <th width="200">Notes</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Movie x in Model)
+            {
+                <tr>
+                    <!--Edit button-->
+                    <td>
+                    <form asp-action="EditMovie" method="post">
+                        <input type="hidden" value="@x.MovieId" name="MovieId"/>
+                        <button class="btn text-white" style="background-color: #f6b55f" type="submit">Edit</button>
+                    </form>
+                    </td>
+                    <td>@x.Category</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@x.Edited</td>
+                    <td>@x.LentTo</td>
+                    <td>@x.Notes</td>
+                    <!--Delete button-->
+                    <td>
+                        <form asp-action="DeleteMovie">
+                            <input type="hidden" value="@x.MovieId" name="MovieId"/>
+                            <button class="btn text-white" style="background-color: #f6b55f"  type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
